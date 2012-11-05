@@ -1,6 +1,8 @@
 # Ignore *.pro.user files
 *.pro.user
 
+target/
+
 # Compiled Object files
 *.slo
 *.lo
