@@ -1,0 +1,1 @@
+qmake $PWD/../src/play.pro -r -spec linux-g++ CONFIG+=debug CONFIG+=declarative_debug
