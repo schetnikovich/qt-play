@@ -39,7 +39,11 @@ REM -----------------------------------
 
 REM Run qmake
 qmake %PROJECT_ROOT%src\play.pro -r -spec win32-msvc2010 "CONFIG+=debug" "CONFIG+=declarative_debug"
-if %ERRORLEVEL% neq 0 goto ERROR
+if %ERRORLEVEL% neq 0 (
+  echo.
+  echo Error when running qmake.
+  goto FINALLY
+)
 
 REM -----------------------------------
 REM - Visual C nmake
@@ -56,7 +60,11 @@ IF "!%VSINSTALLDIR%!" == "!!" (
 )
 
 nmake
-if %ERRORLEVEL% neq 0 goto ERROR
+if %ERRORLEVEL% neq 0 (
+  echo.
+  echo Error when running nmake.
+  goto FINALLY
+)
 
 goto DONE
 
@@ -65,6 +73,7 @@ REM - Errors report
 REM -----------------------------------
 :ERROR
 
+echo.
 echo Some error found.
 goto FINALLY
 
@@ -73,7 +82,9 @@ REM - Success report
 REM -----------------------------------
 :DONE
 
+echo.
 echo Done without errors.
+echo Executable location: %OUTPUT%
 goto FINALLY
 
 REM -----------------------------------
