@@ -2,6 +2,7 @@
 *.pro.user
 
 target/
+*~
 
 # Compiled Object files
 *.slo
