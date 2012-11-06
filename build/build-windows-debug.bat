@@ -1,4 +1,5 @@
 @echo off 
+setlocal enableextensions enabledelayedexpansion
 
 REM -----------------------------------
 REM - Configuration
@@ -30,6 +31,8 @@ REM Go to /target/debug folder
 cd %PROJECT_ROOT%target\debug
 if %ERRORLEVEL% neq 0 goto ERROR
 
+echo.
+
 REM -----------------------------------
 REM - QMake
 REM -----------------------------------
@@ -42,15 +45,14 @@ REM -----------------------------------
 REM - Visual C nmake
 REM -----------------------------------
 
-echo VSINSTALLDIR is: %VSINSTALLDIR%
-
 IF "!%VSINSTALLDIR%!" == "!!" (
 
+  echo Settings Visual C environment variables...
   call "%VISUALC_DIR%\bin\vcvars32.bat"
   if %ERRORLEVEL% neq 0 goto ERROR
   
 ) else ( 
-echo Skipping VC environment setup
+  echo Skipping Visual C environment setup ^(already configured^)
 )
 
 nmake
