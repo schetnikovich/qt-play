@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     setObjectName("Main Window");
-    setWindowTitle("Heeeeee");
+    setWindowTitle("Qt");
     //ui->setupUi(this);
 
     resize(400, 300);
