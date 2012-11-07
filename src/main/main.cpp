@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
     
-    int i = 87;
+    int i = 875;
 
     return a.exec();
 }
